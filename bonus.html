@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Test</title>
+</head>
+<body>
+	<label>Search</label>
+	<input type="text" id="search">
+	<button onclick="fun()">Submit</button>
+	<button onclick="upper()">Is first letter uppercase?</button>
+
+	<div class="article-card">
+		<h1>Lorem</h1>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent porta purus quam, nec ultrices enim ultrices sit amet. Curabitur rhoncus, nisl id lacinia suscipit, tortor ipsum molestie dui, at vehicula magna eros at nisi. Sed sed tristique lectus, non elementum nulla. Nulla id lacus mattis diam ultricies blandit a vitae purus. Integer vitae magna sed nisi imperdiet gravida. Ut sed tellus vitae nisl lacinia sagittis. Sed et dapibus risus. Nulla arcu ante, efficitur at semper sit amet, dignissim eget magna. Praesent vel nisl vulputate, suscipit mauris sed, venenatis sem. Nam in gravida nisi. Donec massa sem, facilisis ut velit ut, mattis imperdiet massa.</p>
+	</div>
+
+	<div class="article-card">
+		<h2>Ipsum</h2>
+		<p>Sed accumsan enim orci, ut tempor ligula interdum eu. Proin pretium, felis sit amet accumsan rhoncus, justo neque feugiat enim, non condimentum orci sapien nec diam. Proin mattis scelerisque arcu quis ornare. Vivamus tristique elit eu dictum feugiat. Nullam odio ligula, ullamcorper at nunc a, luctus iaculis urna. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla elit neque, accumsan vel suscipit ac, malesuada non ante. Aliquam erat diam, gravida congue sem sed, efficitur fringilla urna.</p>
+	</div>
+
+	<div class="article-card">
+		<h3>Dolor</h3>
+		<p>Proin leo ipsum, aliquet a elit nec, porta malesuada purus. Duis nec lectus dictum ligula condimentum consequat ut sed enim. Cras interdum sem vitae suscipit dictum. Curabitur vel est imperdiet, facilisis odio eget, euismod arcu. Donec lobortis leo vitae dignissim varius. Cras volutpat, justo interdum rutrum mollis, neque orci pretium elit, et condimentum neque erat nec dolor. Suspendisse odio neque, rutrum sed congue nec, luctus vel mauris. Phasellus sit amet nisi ut est pulvinar faucibus. Praesent non leo sollicitudin libero consequat consequat. In finibus, velit cursus dapibus dictum, enim tellus consequat purus, vitae lobortis risus elit ut enim. Aliquam vitae suscipit orci.</p>
+	</div>
+
+	<div class="article-card">
+		<h4>Sit</h4>
+		<p>Etiam a pretium nisl, ac consequat diam. Praesent consequat, tortor a sagittis posuere, felis mi rutrum erat, quis efficitur erat erat in felis. Donec sed turpis et est volutpat sagittis eu et mi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam ac velit id libero posuere fringilla. Morbi vel lacinia elit. Praesent hendrerit pulvinar sapien, sed venenatis augue fringilla eu.</p>
+	</div>
+
+	<div class="article-card">
+		<h5>Amet</h5>
+		<p>Sed vulputate eget magna sed luctus. Nullam non laoreet urna, mattis aliquam ex. In hac habitasse platea dictumst. Ut consequat elit vel nisi convallis, non imperdiet risus elementum. Donec et massa pellentesque, malesuada libero ac, fringilla lectus. Praesent egestas malesuada diam sit amet euismod. Vestibulum hendrerit mi metus, id volutpat quam suscipit id. Vestibulum nibh metus, mollis id tempus vitae, convallis et ipsum. Quisque eu enim non nisi iaculis dapibus id quis sapien. Ut venenatis feugiat enim, nec imperdiet nisi. Donec sit amet faucibus tortor, bibendum feugiat lacus. Morbi turpis orci, convallis vel suscipit eu, pretium ac dui. Donec semper erat justo, sed hendrerit risus egestas vel. Aenean sit amet mi vitae lacus semper ullamcorper. Phasellus sit amet finibus massa, et pharetra eros.</p>
+	</div>
+
+	<p id="numbers"></p>
+
+	<script>
+		function fun() {
+			var word = document.getElementById("search").value;
+			var divs = document.getElementsByTagName("div");
+			for(var i = 0; i < divs.length; i++)
+			{
+				if (divs[i].children[1].innerText.includes(word)==false) {
+			    	divs[i].style.visibility = "hidden";
+				}
+			}
+		}
+		function upper(){
+			var testword = document.getElementById("search").value;
+			if (testword.substring(0,1) == testword.substring(0,1).toUpperCase()) {
+				alert("Yes, first letter is uppercase!")
+			}
+			else {alert("No, it's lowercase");}
+		}
+
+		function sumDigits(number) {
+  		var str = number.toString();
+  		var sum = 0;
+
+  		for (var i = 0; i < str.length; i++) {
+    		sum += parseInt(str.charAt(i), 10);
+  		}
+  		return sum;
+		}
+
+		var sumdiv7="";
+		for (var i = 1; i <= 100; i++) {
+			if(sumDigits(i)%7==0){
+				sumdiv7 += i + " ";
+			}
+		}
+		document.getElementById("numbers").innerHTML = sumdiv7;
+	</script>
+</body>
+</html>
